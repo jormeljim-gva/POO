@@ -1,0 +1,18 @@
+package libros;
+
+public class Tema {
+    String nombre;
+
+    public Tema(String nombre) {
+        this.nombre = nombre;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
+}
