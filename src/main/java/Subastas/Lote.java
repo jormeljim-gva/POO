@@ -33,20 +33,8 @@ public class Lote {
         this.precio_salida = precio_salida;
     }
 
-    public Subasta getSubasta() {
-        return subasta;
-    }
-
-    public void setSubasta(Subasta subasta) {
-        this.subasta = subasta;
-    }
-
     public List<Articulo> getArticulos() {
         return articulos;
-    }
-
-    public void setArticulos(List<Articulo> articulos) {
-        this.articulos = articulos;
     }
 
     public void addArticulo (Articulo articulo) {
@@ -55,10 +43,6 @@ public class Lote {
 
     public List<Puja> getPujas() {
         return pujas;
-    }
-
-    public void setPujas(List<Puja> pujas) {
-        this.pujas = pujas;
     }
 
     public void addPuja(Puja puja){
