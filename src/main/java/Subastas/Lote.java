@@ -4,40 +4,41 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Lote {
-    private String numero;
-    private int precio_salida;
+
+    private int numeroLote;
+    private String descripcion;
     private Subasta subasta;
     private List<Articulo> articulos = new ArrayList<>();
     private List<Puja> pujas = new ArrayList<>();
 
-    public Lote(String numero, int precio_salida, Subasta subasta) {
-        this.numero = numero;
-        this.precio_salida = precio_salida;
+    public Lote(int numeroLote, String descripcion, Subasta subasta) {
+        this.numeroLote = numeroLote;
+        this.descripcion = descripcion;
         this.subasta = subasta;
         this.subasta.getLotes().add(this);
     }
 
-    public String getNumero() {
-        return numero;
+    public int getNumeroLote() {
+        return numeroLote;
     }
 
-    public void setNumero(String numero) {
-        this.numero = numero;
+    public void setNumeroLote(int numeroLote) {
+        this.numeroLote = numeroLote;
     }
 
-    public int getPrecio_salida() {
-        return precio_salida;
+    public String getDescripcion() {
+        return descripcion;
     }
 
-    public void setPrecio_salida(int precio_salida) {
-        this.precio_salida = precio_salida;
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
     }
 
     public List<Articulo> getArticulos() {
         return articulos;
     }
 
-    public void addArticulo (Articulo articulo) {
+    public void addArticulo(Articulo articulo){
         this.articulos.add(articulo);
     }
 
@@ -48,5 +49,4 @@ public class Lote {
     public void addPuja(Puja puja){
         this.pujas.add(puja);
     }
-
 }

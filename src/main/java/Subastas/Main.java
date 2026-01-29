@@ -1,13 +1,36 @@
 package Subastas;
 
 public class Main {
+    public static void cerrar(Subasta subasta){
+        double maximo = Integer.MIN_VALUE;
+        Puja pujaActual = null;
+        for (Lote lote : subasta.getLotes()){
+            System.out.println(lote.getDescripcion());
+            for(Puja puja : lote.getPujas()){
+                if (puja.getCantidad() > maximo){
+                    maximo = puja.getCantidad();
+                    pujaActual = puja;
+                }
+            }
+            if (pujaActual != null){
+                System.out.println(pujaActual.getCantidad());
+                System.out.printf("Adjudicado a %s por %f", pujaActual.getPujador().getNombre(), pujaActual.getCantidad());
+            }
+            maximo = Integer.MIN_VALUE;
+            pujaActual = null;
+        }
+    }
+
     public static void main(String[] args) {
-        Subasta sub1 = new Subasta("Hoy");
-        Lote lote = new Lote("1", 1000, sub1);
-        Articulo articulo = new Articulo("Coche", "10000€", lote);
-        lote.addArticulo(articulo);
-        Pujadores pujador = new Pujadores("Pepe");
-        Puja puja = new Puja(11000, pujador, lote);
-        lote.addPuja(puja);
+        CasaSubasta sothebys = new CasaSubasta("Sothebys", "London");
+        Subasta subastaPicasos = new Subasta("Picasos", sothebys, "hoy");
+        Lote loteAzul = new Lote(1, "Época azul", subastaPicasos);
+        Lote loteRosa = new Lote(2, "Época rosa", subastaPicasos);
+        Articulo cuadro1 = new Articulo("Cuadro 1", 120, loteAzul);
+        Articulo cuadro2 = new Articulo("Cuadro 2", 300, loteAzul);
+        Articulo cuadro3 = new Articulo("Cuadro 3", 200, loteRosa);
+        Pujador pepe = new Pujador("Pepe");
+        Puja p1 = new Puja(200, pepe,loteAzul);
+        cerrar(subastaPicasos);
     }
 }

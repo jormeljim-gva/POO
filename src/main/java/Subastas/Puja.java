@@ -1,29 +1,40 @@
 package Subastas;
 
-import java.util.List;
-
 public class Puja {
-    private int cantidad;
-    private Pujadores pujadores;
+    private Pujador pujador;
     private Lote lote;
+    private double cantidad;
 
-    public Puja(int cantidad, Pujadores pujadores, Lote lote) {
-        this.cantidad = cantidad;
-        this.pujadores = pujadores;
+    public Puja(double cantidad, Pujador pujador, Lote lote) {
+        this.pujador = pujador;
         this.lote = lote;
+        this.cantidad = cantidad;
+        this.pujador.addPuja(this);
+        this.lote.addPuja(this);
 
     }
 
-    public int getCantidad() {
+    public Pujador getPujador() {
+        return pujador;
+    }
+
+    public void setPujador(Pujador pujador) {
+        this.pujador = pujador;
+    }
+
+    public Lote getLote() {
+        return lote;
+    }
+
+    public void setLote(Lote lote) {
+        this.lote = lote;
+    }
+
+    public double getCantidad() {
         return cantidad;
     }
 
-    public void setCantidad(int cantidad) {
+    public void setCantidad(double cantidad) {
         this.cantidad = cantidad;
-    }
-
-    @Override
-    public String toString() {
-        return "Pujas{" + "cantidad=" + cantidad + '}';
     }
 }
