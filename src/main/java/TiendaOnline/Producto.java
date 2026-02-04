@@ -7,11 +7,14 @@ public class Producto {
     private String nombre;
     private double precio;
     private Categoria categoria;
+    private Vendedor vendedor;
     private List<Resenya> resenyas = new ArrayList<>();
-    public Producto(String nombre, double precio, Categoria categoria) {
+    public Producto(String nombre, double precio, Categoria categoria, Vendedor vendedor) {
         this.nombre = nombre;
         this.precio = precio;
         this.categoria = categoria;
+        this.vendedor = vendedor;
+        this.vendedor.getProductos().add(this);
     }
 
     public String getNombre() {

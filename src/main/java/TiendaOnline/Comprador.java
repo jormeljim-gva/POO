@@ -3,21 +3,12 @@ package TiendaOnline;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Comprador {
-    private String nombre;
+public class Comprador extends Usuario {
     private List<Pedido> pedidos = new ArrayList<>();
     private List<Resenya> resenyas = new ArrayList<>();
 
     public Comprador(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
+        super(nombre);
     }
 
     public List<Pedido> getPedidos() {

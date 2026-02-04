@@ -7,17 +7,18 @@ public class Pedido {
     private String nombre;
     private String fecha;
     private String direccion;
-    private Comprador usuario;
+    private Comprador comprador;
     private List<Producto> productos = new ArrayList<>();
     private MetodoPago metodoPago;
 
-    public Pedido(String nombre, String fecha, String direccion, Comprador usuario, List<Producto> productos, MetodoPago metodoPago) {
+    public Pedido(String nombre, String fecha, String direccion, Comprador comprador, MetodoPago metodoPago) {
         this.nombre = nombre;
         this.fecha = fecha;
         this.direccion = direccion;
-        this.usuario = usuario;
-        this.productos = productos;
+        this.comprador = comprador;
+        this.comprador.addPedido(this);
         this.metodoPago = metodoPago;
+        this.metodoPago.getPedidos().add(this);
     }
 
     public String getNombre() {
